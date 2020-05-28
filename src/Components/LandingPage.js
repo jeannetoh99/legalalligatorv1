@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import alligator from "./../images/alligator.jpg"
+import alligator from "./../images/alligator.jpg";
+import SearchBar from "./SearchBar";
 
 export class LandingPage extends Component {
   render() {
     return (
       <div className="page relative h-full">
         <div className="flex flex-row items-center justify-center">
-          <div className="absolute -ml-156 mt-16 h-132 w-132 bg-red-500 rounded-full z-0"/>
+          <div className="absolute -ml-156 h-132 w-132 bg-red-500 rounded-full z-0"/>
           <div className="max-w-7xls py-2 text-left p-4 z-10">
             <p className="uppercase font-semibold tracking-widest leading-tight karla text-5xl text-black">
               Still clueless <br/>about what <br/>case suits yours most?
@@ -25,6 +26,7 @@ export class LandingPage extends Component {
               </button>
             </Link>
         </div>
+        <SearchBar/>
       </div>
     );
   }
