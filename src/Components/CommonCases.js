@@ -31,8 +31,18 @@ const CommonCase = () => {
     }
 
     return(
-        <div className="w-screen justify-center flex">
-            {renderCaseCards()}
+        <div className="h-screen flex content-center flex-wrap justify-center">
+            <div className="mx-12 text-center">
+                <h1 className="text-3xl karla font-bold">Select what best describes your case</h1>
+                <h2 className="text-lg"> Here are the most common cases:</h2>
+            </div>
+            <div className="w-screen justify-center flex py-8">
+                {renderCaseCards()}
+            </div>
+            <div className="mx-12 text-center">
+                <h1 className="text-2xl karla font-bold">Not what you're looking for?</h1>
+                <h2 className="text-lg"> Describe your case!</h2>
+            </div>
         </div>
     )
 }
