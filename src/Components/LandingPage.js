@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import alligator from "./../images/alligator.jpg"
+import CommonCases from "./CommonCases"
 
 export class LandingPage extends Component {
   render() {
@@ -25,6 +26,7 @@ export class LandingPage extends Component {
               </button>
             </Link>
         </div>
+        <CommonCases />
       </div>
     );
   }
