@@ -3,7 +3,7 @@ import NavButton from "./NavButton";
 import { Link } from "react-router-dom";
 import alligatorhead from "./../images/alligatorhead.jpg"
 
-function NavBar() {
+const NavBar = () => {
   return (
     <nav className="w-full h-auto p-6 top-0 z-10 bg-white">
       <div className="pt-4 text-center block lg-xl:inline-block lg-xl:float-right lg-xl:pt-8">
@@ -17,7 +17,7 @@ function NavBar() {
             </div>
           </Link>
           <Link to="/About">
-            <NavButton name="About Us"/>
+            <NavButton name="About Us" />
           </Link>
           <Link to="/Actions">
             <NavButton name="Possible Actions" />
