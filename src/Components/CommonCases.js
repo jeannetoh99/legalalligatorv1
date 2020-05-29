@@ -31,7 +31,7 @@ const CommonCase = () => {
     }
 
     return(
-        <div className="h-screen flex content-center flex-wrap justify-center">
+        <div id="common-cases" className="h-screen flex content-center flex-wrap justify-center">
             <div className="mx-12 text-center">
                 <h1 className="text-3xl karla font-bold">Select what best describes your case</h1>
                 <h2 className="text-lg"> Here are the most common cases:</h2>
@@ -41,7 +41,7 @@ const CommonCase = () => {
             </div>
             <div className="mx-12 text-center">
                 <h1 className="text-2xl karla font-bold">Not what you're looking for?</h1>
-                <h2 className="text-lg"> Describe your case!</h2>
+                <h2 className="text-lg hover:font-semibold"><a href="#case-describer">Describe your case!</a></h2>
             </div>
         </div>
     )
