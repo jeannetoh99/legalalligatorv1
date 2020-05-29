@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import alligator from "./../images/alligator.jpg";
 import SearchBar from "./SearchBar";
 import CommonCases from "./CommonCases"
@@ -8,7 +9,7 @@ export class LandingPage extends Component {
   render() { 
     return (
       <div className="page relative h-full">
-        <div className="flex flex-row items-center justify-center -mt-24 ">
+        <div className="flex flex-row items-center justify-center -mt-32 ">
           <div className="absolute -ml-156 h-132 w-132 bg-red-500 rounded-full z-0" />
           <div className="max-w-7xls py-2 text-left p-4 z-10">
             <p className="uppercase font-semibold tracking-widest leading-tight karla text-5xl text-black">
@@ -19,13 +20,13 @@ export class LandingPage extends Component {
             <img src={alligator} alt="cute alligator picture" />
           </div>
         </div>
-        <div className="w-screen mt-16 pt-4 flex justify-center ">
-          <Link to="/">
+        <div className="w-screen -mt-12 pt-4 flex justify-center ">
+          <HashLink to="#common-cases">
             <button className="uppercase bg-green-700 tracking-xl font-bold text-base
-                text-white p-4 m-2 rounded-full shadow-lg hover:bg-green-600" >
+                text-white p-4 rounded-full shadow-lg hover:bg-green-600" >
               Let Us Help You!
-              </button>
-          </Link>
+            </button>
+          </HashLink>
         </div>
         <CommonCases />
         <SearchBar />

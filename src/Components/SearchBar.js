@@ -24,8 +24,8 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div className="flex justify-center mx-6 mb-40" >
-                <div className="rounded-lg h-96 w-236 py-4 px-12 bg-red-400">
+            <div id="case-describer" className="flex justify-center mx-6 mb-64" >
+                <div className="rounded-lg h-124 w-236 py-4 px-12 bg-red-400">
                     {/* <div className="flex justify-center">
                         <div className="self-end flex-1 rounded-lg h-48 w-196 bg-white"> */}
                     <form className="flex flex-col" onSubmit={this.handleSubmit}>
@@ -35,7 +35,7 @@ class SearchBar extends Component {
                                 Briefly describe what happened and what you are seeking to do. Our machines
                                 will read and scan through the database for relevant topics to assist you.</label>
                             <textarea 
-                                className="bg-gray-100 rounded-lg p-2 h-40 text-lg mt-4" 
+                                className="bg-gray-100 rounded-lg p-2 h-64 text-lg mt-4" 
                                 placeholder="Please describe your case."
                                 onChange={this.handleChange} 
                             />
