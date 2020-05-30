@@ -5,7 +5,7 @@ import alligatorhead from "./../images/alligatorhead.jpg"
 
 const NavBar = () => {
   return (
-    <nav className="w-full h-auto p-6 top-0 z-10 bg-white">
+    <nav className="w-full h-auto p-6 top-0 z-10 bg-white fixed" style={{minWidth: '1000px'}}>
       <div className="pt-4 text-center block lg-xl:inline-block lg-xl:float-right lg-xl:pt-8">
         <ul className="flex justify-center inline mb-0 text-gray-600 lg-xl:justify-end items-center">
           <Link to="/">
@@ -19,9 +19,9 @@ const NavBar = () => {
           <Link to="/About">
             <NavButton name="About Us" />
           </Link>
-          <Link to="/Actions">
+          {/*<Link to="/Actions">
             <NavButton name="Possible Actions" />
-          </Link>
+          </Link>*/}
           <Link to="/Useful-Links">
             <NavButton name="Useful Links" />
           </Link>

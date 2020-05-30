@@ -21972,8 +21972,39 @@ video {
 
 @import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 nav div ul li {
   transition: border 0.5s;
+}
+
+.la-h1 {
+  font-weight: 700;
+  font-family: "Lato", "Sans Serif";
+  font-size: 3rem;
+}
+
+.la-h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  font-family: "Lato", "Sans Serif";
+}
+
+.la-h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  font-family: "Lato", "Sans Serif";
+}
+
+.la-h4 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: "Lato", "Sans Serif";
+}
+
+.la-p {
+  font-weight: 500;
+  font-family: "Lato", "Sans Serif";
 }
 
 .poppins {
@@ -21982,6 +22013,10 @@ nav div ul li {
 
 .karla {
   font-family: "Karla", "Sans Serif";
+}
+
+.lato {
+  font-family: "Lato", "Sans Serif";
 }
 
 .tou-anchor {
@@ -21997,8 +22032,8 @@ nav div ul li {
 
 .page {
   position: static;
-  margin-top: 12rem;
-  margin-bottom: 6rem;
+  margin-top: 150px;
+  padding: 24px 56px;
   flex: 1 0 auto;
   z-index: 0;
 }
