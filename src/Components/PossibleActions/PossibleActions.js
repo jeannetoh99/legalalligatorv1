@@ -29,7 +29,7 @@ const PossibleActions = () => {
     }
 
     return (
-      <div className="page" style={{minWidth: '1000px'}}>
+      <div className="pt-40" style={{minWidth: '1000px', margin: "0 10%"}}>
         <div>
           <h2 className="la-h1 float-right" style={{color: '#C1C1C1'}}>{caseAction.case_name}</h2>
           <h1 className="la-h1 text-gray-900 leading-tight">Understand <br/>Your Options</h1>

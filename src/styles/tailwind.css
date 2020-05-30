@@ -21996,6 +21996,12 @@ nav div ul li {
   font-family: "Lato", "Sans Serif";
 }
 
+.la-h4 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-family: "Lato", "Sans Serif";
+}
+
 .la-p {
   font-weight: 500;
   font-family: "Lato", "Sans Serif";
@@ -22026,6 +22032,7 @@ nav div ul li {
 
 .page {
   position: static;
+  margin-top: 150px;
   padding: 24px 56px;
   flex: 1 0 auto;
   z-index: 0;

@@ -1,9 +1,19 @@
 import React from 'react';
 import { AllActions, PossibleOutcomes } from "./CaseActions";
+import { useHistory } from 'react-router-dom';
 
 const ActionSummary = (props) => {
     const action = AllActions[props.id-1];
     const actionSummary = action.action_summary;
+    
+    const history = useHistory();
+
+    const getActionDetails = () => {
+        let path = `/Action-Details/${props.id}`;
+        history.push(path);
+        window.location.reload(false);
+    }
+
 
     const renderPossibleOutcomes = () => {
         return (
@@ -40,8 +50,10 @@ const ActionSummary = (props) => {
                 </div>
             </div>
             <button className="float-right uppercase bg-red-500 tracking-xl font-bold text-base
-                text-white py-3 px-6 -mt-12 rounded-full shadow-lg hover:bg-red-400" 
-                style={{marginRight: '10%'}}>
+                text-white py-3 px-6 rounded-full shadow-lg hover:bg-red-400" 
+                style={{marginRight: '10%'}}
+                onClick={() => getActionDetails()}
+            >
                 Details
             </button>
         </div>

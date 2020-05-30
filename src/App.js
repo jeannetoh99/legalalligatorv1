@@ -7,6 +7,7 @@ import AboutUs from "./Components/Pages/AboutUs";
 import PossibleActions from "./Components/PossibleActions/PossibleActions";
 import UsefulLinks from "./Components/Pages/UsefulLinks";
 import Glossary from "./Components/Pages/Glossary";
+import ActionDetails from "./Components/PossibleActions/ActionDetails";
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
               <Route path="/" exact component={LandingPage} />
               <Route path="/About" exact component={AboutUs} />
               <Route path="/Actions/:id" exact component={PossibleActions} />
+              <Route path="/Action-Details/:id" exact component={ActionDetails} />
               <Route path="/Useful-Links" exact component={UsefulLinks} />
               <Route path="/Glossary" exact component={Glossary} />
             </Switch>

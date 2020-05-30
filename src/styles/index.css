@@ -22,6 +22,10 @@ nav div ul li {
     @apply font-semibold text-xl lato;
 }
 
+.la-h4 {
+    @apply font-medium text-xl lato;
+}
+
 .la-p {
     @apply font-medium lato;
 }
@@ -50,6 +54,7 @@ nav div ul li {
 
 .page {
     position: static;
+    margin-top: 150px;
     padding: 24px 56px;
     flex: 1 0 auto;
     z-index: 0;
