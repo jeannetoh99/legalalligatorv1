@@ -19,9 +19,9 @@ const NavBar = () => {
           <Link to="/About">
             <NavButton name="About Us" />
           </Link>
-          <Link to="/Actions">
+          {/*<Link to="/Actions">
             <NavButton name="Possible Actions" />
-          </Link>
+          </Link>*/}
           <Link to="/Useful-Links">
             <NavButton name="Useful Links" />
           </Link>
