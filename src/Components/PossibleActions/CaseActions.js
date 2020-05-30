@@ -23,7 +23,7 @@ export const CaseActions = [
 export const AllActions = [
     {
         id: 1,
-        action_name: 'File For A Protection Order',
+        action_name: 'File for Protection Order',
         action_summary: {
             details: 'Under the Protection from Harassment Act, a victim of harassment may apply to the court for a protection order against the perpetrator. The specifics of the protection order will vary based on the particulars of the case. \n\nExpedited Protection Orders are granted on an urgent basis. If not, the application for a protection order will follow a process similar to a trial, involving a court hearing.',
             cost_estimate: 'S$ 150-250',

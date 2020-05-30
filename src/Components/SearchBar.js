@@ -24,7 +24,7 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div id="case-describer" className="flex justify-center mx-6 mb-64" >
+            <div id="case-describer" className="flex justify-center mx-6 py-48" >
                 <div className="rounded-lg h-124 w-236 py-4 px-12 bg-red-400">
                     {/* <div className="flex justify-center">
                         <div className="self-end flex-1 rounded-lg h-48 w-196 bg-white"> */}

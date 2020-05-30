@@ -37,7 +37,7 @@ const CommonCase = () => {
     }
 
     return(
-        <div id="common-cases" className="h-screen flex content-center flex-wrap justify-center">
+        <div id="common-cases" className="pt-40 flex content-center flex-wrap justify-center">
             <div className="mx-12 text-center">
                 <h1 className="text-3xl karla font-bold">Select what best describes your case</h1>
                 <h2 className="text-lg"> Here are the most common cases:</h2>
