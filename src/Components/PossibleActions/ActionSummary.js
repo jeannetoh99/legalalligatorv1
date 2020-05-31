@@ -1,15 +1,17 @@
 import React from 'react';
 import { AllActions, PossibleOutcomes } from "./CaseActions";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const ActionSummary = (props) => {
     const action = AllActions[props.id-1];
     const actionSummary = action.action_summary;
     
     const history = useHistory();
+    const location = useLocation();
+    console.log(location.pathname);
 
     const getActionDetails = () => {
-        let path = `/Action-Details/${props.id}`;
+        let path = `${location.pathname}/Details/${props.id}`;
         history.push(path);
         window.location.reload(false);
     }

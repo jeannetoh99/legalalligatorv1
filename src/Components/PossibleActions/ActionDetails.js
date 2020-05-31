@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { AllActions, PossibleOutcomes } from './CaseActions';
 import Box from './Box';
@@ -7,6 +7,7 @@ import ChecklistItem from './ChecklistItem';
 
 const ActionDetails = () => {
     
+    const history = useHistory();
     const location = useLocation();
     const pathname = location.pathname;
     const lastIndex = pathname.lastIndexOf('/');
@@ -15,6 +16,14 @@ const ActionDetails = () => {
     const action = AllActions[actionId - 1];
     const actionSummary = action.action_summary;
     const checkpoints = action.checkpoints;
+
+    const goBack = () => {
+        const splitPathname = pathname.split('/');
+        const caseId = splitPathname[splitPathname.length - 3];
+        let path = `/Actions/${caseId}`;
+        history.push(path);
+        window.location.reload(false);
+    }
 
 
     const renderSideBar = () => {
@@ -112,7 +121,8 @@ const ActionDetails = () => {
 
     return (
         <div className="my-8 w-full" style={{padding: '0 8% 400px'}}>
-            <div className="sidebar w-1/6 fixed mt-48">
+            <div className="sidebar w-1/6 fixed mt-40">
+                <div className="mb-8 text-red-400 cursor-pointer hover:font-bold" onClick={() => goBack()}>{`< back`}</div>
                 {renderSideBar()}
             </div>
             <div className="w-5/6" style={{margin:'0 10% 0 20%'}}>
