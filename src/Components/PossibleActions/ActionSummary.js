@@ -1,5 +1,5 @@
 import React from 'react';
-import { AllActions, PossibleOutcomes } from "./CaseActions";
+import { AllActions, PossibleOutcomes } from "../../Database/CaseActions";
 import { useHistory, useLocation } from 'react-router-dom';
 
 const ActionSummary = (props) => {
@@ -13,7 +13,6 @@ const ActionSummary = (props) => {
     const getActionDetails = () => {
         let path = `${location.pathname}/Details/${props.id}`;
         history.push(path);
-        window.location.reload(false);
     }
 
 

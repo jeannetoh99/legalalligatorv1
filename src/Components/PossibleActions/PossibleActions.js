@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CaseActions, AllActions } from "./CaseActions";
+import { CaseActions, AllActions } from "../../Database/CaseActions";
 import { useLocation } from 'react-router-dom';
 import ActionSummary from './ActionSummary';
 import { render } from '@testing-library/react';

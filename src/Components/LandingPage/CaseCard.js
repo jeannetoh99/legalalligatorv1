@@ -14,7 +14,6 @@ const CaseCard = (props) => {
     const getPossibleActions = () => {
         let path = `/Actions/${props.case.id}`;
         history.push(path);
-        window.location.reload(false);
     }
 
 

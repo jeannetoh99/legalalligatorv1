@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { AllActions, PossibleOutcomes } from './CaseActions';
+import { AllActions, PossibleOutcomes } from '../../Database/CaseActions';
 import Box from './Box';
 import ChecklistItem from './ChecklistItem';
 
