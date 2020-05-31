@@ -1,7 +1,7 @@
 import React from "react";
 import NavButton from "./NavButton";
 import { Link } from "react-router-dom";
-import alligatorhead from "./../images/alligatorhead.jpg"
+import alligatorhead from "./../../images/alligatorhead.jpg"
 
 const NavBar = () => {
   return (
