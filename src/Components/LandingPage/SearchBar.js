@@ -45,9 +45,9 @@ const SearchBar = () => {
                         />
                     </div>
                 </form>
-                <div onClick={() => getSearchResults()} className="cursor-pointer hover:font-bold">
+                <span onClick={() => getSearchResults()} className="cursor-pointer hover:font-bold">
                     See sample search result page here!
-                </div>
+                </span>
             </div>
         </div>
     );
