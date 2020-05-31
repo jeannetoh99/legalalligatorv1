@@ -6,6 +6,9 @@ module.exports = {
         focus: '0px 5px 15px -5px rgba(0,0,0,0.5)',
       },
       spacing: {
+        '26': '6.5rem',
+        '28': '7rem',
+        '30': '7.5rem',
         '72': '18rem',
         '80': '20rem',
         '88': '22rem',

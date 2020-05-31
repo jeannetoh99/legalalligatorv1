@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import HoverWord from './HoverWord';
 
 const CaseCard = (props) => {
 
@@ -37,11 +38,14 @@ const CaseCard = (props) => {
 
     return(
         <div>
-            <div className="m-4 p-4 h-80 w-64 border-2 rounded-lg overflow-hidden bg-gray-100">
-                <button className="float-right text-green-500 px-1 ml-24 font-semibold border-2 rounded-lg border-transparent hover:border-green-500 " 
+            <div className="m-4 p-4 h-80 w-64 border-2 rounded-lg bg-gray-100 z-0">
+                <button className="float-right text-green-500 px-1 ml-24 font-semibold border-2 
+                        rounded-lg border-transparent hover:border-green-500 z-20" 
                         onClick={() => toggleLearnMore()}>learn more</button>
-                <div className="cursor-pointer" onClick={() => getPossibleActions()}>
-                    <h2 className="uppercase font-bold text-2xl w-full karla leading-tight">{props.case.case_name}</h2>
+                <div className="cursor-pointer w-full z-0" onClick={() => getPossibleActions()}>
+                    <HoverWord definition={props.case.definition}>
+                        <h2 className="uppercase font-bold text-2xl karla leading-tight">{props.case.case_name}</h2>
+                    </HoverWord>
                     <img src={props.case.imageURL} alt="" className="inline h-40 w-56 object-contain mt-2"/> 
                 </div> 
             </div>
