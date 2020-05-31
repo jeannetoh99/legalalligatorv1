@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
-import alligator from "./../images/alligator.jpg";
+import alligator from "./../../images/alligator.jpg";
 import SearchBar from "./SearchBar";
 import CommonCases from "./CommonCases"
 
