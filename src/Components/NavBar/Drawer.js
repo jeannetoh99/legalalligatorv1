@@ -78,7 +78,7 @@ class DrawerComponent extends React.Component {
       } else {
         suggestionsListComponent = (
           <div class="no-suggestions">
-            <em>Nothing found, try again.</em>
+            <em>Nothing found, check your spelling.</em>
           </div>
         );
       }
@@ -97,7 +97,7 @@ class DrawerComponent extends React.Component {
           <input
             autoComplete="off"
             type="text"
-            className="input w-full rounded h-10"
+            className="input w-full rounded h-10 p-2"
             id="addInput"
             onChange={onChange}
             value={userInput}

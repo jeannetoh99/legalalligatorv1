@@ -3,6 +3,7 @@ import NavButton from "./NavButton";
 import { Link } from "react-router-dom";
 import alligatorhead from "./../../images/alligatorhead.jpg"
 import DrawerComponent from "./Drawer";
+import { ReactComponent as LightBulb } from '../../images/light-bulb.svg';
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -36,19 +37,20 @@ const NavBar = () => {
             <NavButton name="Glossary" />
           </Link>
           {/* DRAWER COMPONENT */}
-          <button class="mr-2 float-right" aria-label="Open Menu" onClick={() => toggleDrawer()}>
+          <div class="mr-2 float-right" aria-label="Open Menu" onClick={() => toggleDrawer()}>
             <svg
-              fill="none"
+              fill="black"
               stroke="currentColor"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               viewBox="0 0 24 24"
-              class="w-8 h-8"
+              class="w-8 h-8 m-2 pb-2 hover:text-red"
             >
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+          {/* <path d="M4 6h16M4 12h16M4 18h16"></path> */}
+          <LightBulb fill="white"/>
+          </svg>
+      </div>
         </ul>
        
       </div>
