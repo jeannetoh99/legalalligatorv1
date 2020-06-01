@@ -54,7 +54,7 @@ const NavBar = () => {
         </ul>
        
       </div>
-      <DrawerComponent openDrawer={openDrawer}/>
+      <DrawerComponent openDrawer={openDrawer} toggleDrawer={toggleDrawer}/>
     </nav>
   );
 }
