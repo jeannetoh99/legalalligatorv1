@@ -16,8 +16,10 @@ const Glossary = () => {
 
       <div className="page flex w-full justify-between">
         <div className="text-center karla w-2/3 m-8">
-         {words.map((item ) => 
-            <GlossaryCard word={item}/>
+         {words.map((item, i ) => 
+            (i < 10 )
+            ? <GlossaryCard word={item}/>
+            : null
           )}
 
         </div>
@@ -40,7 +42,7 @@ const Poll = () => {
        top hits this week
       </h2>
       {
-        lst.map((item) => <PollCard word={item} />)
+        lst.map((item,i) => (i < 5) ? <PollCard word={item} /> :null)
       }
     </div>
   );

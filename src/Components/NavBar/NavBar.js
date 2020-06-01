@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import NavButton from "./NavButton";
 import { Link } from "react-router-dom";
 import alligatorhead from "./../../images/alligatorhead.jpg"
+import DrawerComponent from "./Drawer";
 
 const NavBar = () => {
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const toggleDrawer = () => {
+    setOpenDrawer(!openDrawer);
+  };
+  
   return (
     <nav className="w-full h-auto p-6 top-0 z-10 bg-white fixed" style={{minWidth: '1000px'}}>
       <div className="pt-4 text-center block lg-xl:inline-block lg-xl:float-right lg-xl:pt-8">
@@ -28,8 +35,24 @@ const NavBar = () => {
           <Link to="/Glossary">
             <NavButton name="Glossary" />
           </Link>
+          {/* DRAWER COMPONENT */}
+          <button class="mr-2 float-right" aria-label="Open Menu" onClick={() => toggleDrawer()}>
+            <svg
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              class="w-8 h-8"
+            >
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
         </ul>
+       
       </div>
+      <DrawerComponent openDrawer={openDrawer}/>
     </nav>
   );
 }
