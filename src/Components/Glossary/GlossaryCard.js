@@ -45,13 +45,11 @@ const GlossaryCard = (props) => {
         </div>
       );
     };
-  
     return (
       <div>
-        <div className="m-4 p-4 w-flex rounded-lg overflow-hidden bg-gray-100">
+        <div className="cursor-pointer m-4 p-4 w-flex rounded-lg overflow-hidden bg-gray-100" onClick={() => toggleLearnMore()}>
           
-          <div className="cursor-pointer" onClick={() => toggleLearnMore()}>
-            <h2 className="uppercase font-bold text-3xl text-left w-full karla leading-tight">
+            <h2 className="uppercase font-bold text-2xl text-left w-full karla leading-tight">
               {props.word.term}
             </h2>
             <div className="h-1 w-flex bg-gray-300"/>
@@ -62,7 +60,6 @@ const GlossaryCard = (props) => {
               Upvotes - {props.word.upvotes}
             </p>
           </div>
-        </div>
         {learnMoreComponent()}
       </div>
     );
