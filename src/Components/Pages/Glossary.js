@@ -14,14 +14,14 @@ const Glossary = () => {
     <div className="flex flex-wrap">
      
 
-      <div className="page flex w-full">
-        <div className="text-center karla w-3/4 ">
+      <div className="page flex w-full justify-between">
+        <div className="text-center karla w-2/3 m-8">
          {words.map((item ) => 
             <GlossaryCard word={item}/>
           )}
 
         </div>
-        <div className=" w-1/4">
+        <div className=" w-1/4 m-8">
           <Poll />
         </div>
       </div>

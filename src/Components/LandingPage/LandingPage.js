@@ -5,11 +5,13 @@ import alligator from "./../../images/alligator.jpg";
 import SearchBar from "./SearchBar";
 import CommonCases from "./CommonCases";
 import ScrollToTop from "./../ScrollToTop";
+import GlossaryDrawer from "../Glossary/Drawer";
 
 export class LandingPage extends Component {
   render() { 
     return (
       <div className="page relative h-full" style={{minWidth: '1000px'}}>
+        {/* <GlossaryDrawer /> */}
         <ScrollToTop />
         <div className="flex flex-row items-center justify-center mt-12 ml-48">
           <div className="absolute -ml-156 h-132 w-132 bg-red-500 rounded-full z-0" />
