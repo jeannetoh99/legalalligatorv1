@@ -1,9 +1,10 @@
 import React from 'react';
-import { AllActions, PossibleOutcomes } from "../../Database/CaseActions";
+import { PossibleOutcomes, CaseActions } from "../../Database/CaseActions";
 import { useHistory, useLocation } from 'react-router-dom';
 
 const ActionSummary = (props) => {
-    const action = AllActions[props.id-1];
+    const selectedCase = CaseActions[props.caseId-1];
+    const action = selectedCase.actions[props.actionId-1];
     const actionSummary = action.action_summary;
     
     const history = useHistory();
@@ -11,7 +12,7 @@ const ActionSummary = (props) => {
     console.log(location.pathname);
 
     const getActionDetails = () => {
-        let path = `${location.pathname}/Details/${props.id}`;
+        let path = `${location.pathname}/Details/${props.actionId}`;
         history.push(path);
     }
 
