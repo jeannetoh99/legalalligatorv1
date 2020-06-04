@@ -1,7 +1,9 @@
 import React, { Component, useState } from "react";
 import { useHistory } from 'react-router-dom';
+import { CaseActions } from './../../Database/CaseActions';
+import CaseSearchResult from "../CaseSearchResult/CaseSearchResult";
 
-const SearchBar = () => {
+const SearchBar = ( {caseSearchStore} ) => {
     
     const [state, setState] = useState({value: '', wordCount: '0'})
     const history = useHistory();
@@ -11,19 +13,45 @@ const SearchBar = () => {
         setState({ value: e.target.value, wordCount: wordCount });
     }
 
-    const handleSubmit = (e) => {
-        alert('A case was submitted: ' + state.value);
-        e.preventDefault();
+    
+
+    const parseWord = (word, caseScoresHashMap) => {
+        return CaseActions.map((data, id) => {
+            if (data.keywords.includes(word)) {
+                var count = caseScoresHashMap.get(id);
+                caseScoresHashMap.set(id, count+1);
+                console.log(caseScoresHashMap.get(id));
+            }
+        })
     }
 
-    const getSearchResults = (e) => {  
+    const parseUserInput = () => {
+        let caseScoresHashMap = new Map();   
+        for (let i=0; i<CaseActions.length; i++) {
+            caseScoresHashMap.set(i, 0);
+            console.log(caseScoresHashMap.get(i))
+        }
+
+        var userSearchInput = state.value.replace(".", "");
+        userSearchInput = userSearchInput.replace(",", "");
+        userSearchInput = userSearchInput.replace("!", "");
+        var words = userSearchInput.split(" ");
+        words.map((data) => parseWord(data, caseScoresHashMap));
+
+        return caseScoresHashMap;
+    }
+
+    const getSearchResults = () => {
+        const caseScores = parseUserInput();
+        const { setCaseScores } = caseSearchStore;
+        setCaseScores(caseScores);
         history.push("/CaseSearchResults");
     }
 
     return (
         <div id="case-describer" className="flex justify-center mx-6 py-48" >
             <div className="rounded-lg h-124 w-236 py-4 px-12 bg-red-400">
-                <form className="flex flex-col" onSubmit={() => handleSubmit()}>
+                <form className="flex flex-col">
                     <label className="karla font-black text-4xl flex flex-col">
                         Describe Your Case
                         <label className="font-normal text-xl">
@@ -33,19 +61,18 @@ const SearchBar = () => {
                         <textarea
                             className="bg-gray-100 rounded-lg p-2 h-64 text-lg mt-4"
                             placeholder="Please describe your case."
-                            onChange={() => handleChange()}
+                            onChange={(e) => handleChange(e)}
                         />
                     </label>
                     <div className="flex flex-row justify-between">
                         <div className="p-2 text-sm">Word Count: {state.wordCount}/50</div>
-                        <input
+                        <button
                             className="mt-4 h-10 w-24 bg-red-500 self-end rounded-lg text-white shadow-xl cursor-pointer hover:bg-red-300"
-                            type="submit"
-                            value="Submit"
-                        />
+                            onClick={() => getSearchResults()}> Submit 
+                        </button>
                     </div>
                 </form>
-                <span onClick={() => getSearchResults()} className="cursor-pointer hover:font-bold">
+                <span className="cursor-pointer hover:font-bold">
                     See sample search result page here!
                 </span>
             </div>

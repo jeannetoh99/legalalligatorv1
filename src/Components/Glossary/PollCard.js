@@ -1,22 +1,11 @@
+import React, {useState} from "react";
 
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { words } from "./Words";
-
-const GlossaryCard = (props) => {
+const PollCard = (props) => {
     const [learnMore, setLearnMore] = useState(false);
-    const history = useHistory();
   
     const toggleLearnMore = () => {
       setLearnMore(!learnMore);
     };
-  
-    const getPossibleActions = () => {
-      let path = `/Actions/${"qwert"}`;
-      history.push(path);
-      window.location.reload(false);
-    };
-  
     const learnMoreComponent = () => {
       const styling = learnMore
         ? "w-full h-screen flex flex-row justify-center items-center visible z-10 fixed top-0 left-0"
@@ -44,25 +33,14 @@ const GlossaryCard = (props) => {
           </div>
         </div>
       );
-    };
-    return (
-      <div>
-        <div className="cursor-pointer m-4 p-4 w-flex rounded-lg overflow-hidden bg-gray-100" onClick={() => toggleLearnMore()}>
-          
-            <h2 className="uppercase font-bold text-2xl text-left w-full karla leading-tight">
-              {props.word.term}
-            </h2>
-            <div className="h-1 w-flex bg-gray-300"/>
-            <p className="font-regular text-left karla text-xl">
-             {props.word.definition}
-            </p>
-            <p className="text-xl text-gray-500 text-right">
-              Upvotes - {props.word.upvotes}
-            </p>
-          </div>
-        {learnMoreComponent()}
-      </div>
-    );
-  };
+    }
+return (
+    <div className=" cursor-pointer bg-gray-100 m-4 p-4 w-flex rounded-lg overflow-hidden h-auto " onClick={() => toggleLearnMore()}>
+      <p className="text-black-500 text-left lowercase">{props.word.term} </p>
 
-  export default GlossaryCard;
+      <p className="text-gray-500 text-right">Upvotes - {props.word.upvotes} </p>
+      {learnMoreComponent()}
+    </div>
+  );
+}
+export default PollCard;
