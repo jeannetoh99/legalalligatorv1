@@ -95,7 +95,8 @@ const ActionDetails = () => {
                 </div>
                 <div className="w-full flex">
                     <div className="w-1/2 py-8 pr-4">
-                        <p className="text-gray-700 la-h4 whitespace-pre-wrap">{data.details}</p>
+                        <p className="text-gray-700 overflow-scroll la-h4 whitespace-pre-wrap" 
+                            style={{maxHeight: '450px'}}>{data.details}</p>
                     </div>
                     <div className="w-1/4">
                         {data.to_do.map((datum) => {
