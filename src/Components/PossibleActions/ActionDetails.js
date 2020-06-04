@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import { AllActions, PossibleOutcomes } from '../../Database/CaseActions';
+import { CaseActions, Checkpoints, PossibleOutcomes } from '../../Database/CaseActions';
 import Box from './Box';
 import ChecklistItem from './ChecklistItem';
 
@@ -10,21 +10,20 @@ const ActionDetails = () => {
     const history = useHistory();
     const location = useLocation();
     const pathname = location.pathname;
-    const lastIndex = pathname.lastIndexOf('/');
-    const actionId = pathname.substr(lastIndex + 1);
+    const splitPathname = pathname.split('/');
+    const caseId = splitPathname[splitPathname.length - 3];
+    const actionId = splitPathname[splitPathname.length - 1];
 
-    const action = AllActions[actionId - 1];
+    const selectedCase = CaseActions[caseId - 1];
+    const action = selectedCase.actions[actionId - 1];
     const actionSummary = action.action_summary;
-    const checkpoints = action.checkpoints;
+    const checkpoints = Checkpoints[action.checkpoint_id - 1].checkpoints;
 
     const goBack = () => {
-        const splitPathname = pathname.split('/');
-        const caseId = splitPathname[splitPathname.length - 3];
         let path = `/Actions/${caseId}`;
         history.push(path);
         window.location.reload(false);
     }
-
 
     const renderSideBar = () => {
         return (
