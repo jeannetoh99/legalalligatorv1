@@ -2,11 +2,13 @@ export const CaseActions = [
     {
         id: 1,
         case_name: 'Assault',
+        keywords: ['fight','attack','assault'],
         actions: [
-        ]
+        ],
     }, {
         id: 2,
         case_name: 'Harassment',
+        keywords: ['harass'],
         actions: [
             {
                 id: 1,
@@ -55,6 +57,13 @@ export const CaseActions = [
     }, {
         id: 3,
         case_name: 'Neighbour Disputes',
+        keywords: ['neighbour', 'quarrel'],
+        actions: [
+        ]
+    }, {
+        id: 4,
+        case_name: 'Stalking',
+        keywords: ['stalking', 'following'],
         actions: [
         ]
     }
