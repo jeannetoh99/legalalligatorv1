@@ -4,19 +4,27 @@ export const CaseActions = [
         case_name: 'Assault',
         action_ids: [
             2, 4
-        ]
+        ],
+        keywords: ['fight','attack','assault']
     }, {
         id: 2,
         case_name: 'Harassment',
         action_ids: [
             1, 2, 3, 4
-        ]
+        ],
+        keywords: ['harass']
     }, {
         id: 3,
         case_name: 'Neighbour Disputes',
         action_ids: [
             1, 3, 4
-        ]
+        ],
+        keywords: ['neighbour', 'quarrel']
+    }, {
+        id: 4,
+        case_name: 'Stalking',
+        action_ids: [],
+        keywords: ['stalking', 'following']
     }
 ]
 

@@ -5,9 +5,16 @@ import alligator from "./../../images/alligator.jpg";
 import SearchBar from "./SearchBar";
 import CommonCases from "./CommonCases";
 import ScrollToTop from "./../ScrollToTop";
+import { observer } from "mobx-react"
 
 export class LandingPage extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() { 
+    const { caseSearchStore } = this.props;
     return (
       <div className="page relative h-full" style={{minWidth: '1000px'}}>
         <ScrollToTop />
@@ -31,10 +38,10 @@ export class LandingPage extends Component {
           </HashLink>
         </div>
         <CommonCases />
-        <SearchBar />
+        <SearchBar caseSearchStore={ caseSearchStore } />
       </div>
     );
   }
 }
-
+LandingPage = observer(LandingPage);
 export default LandingPage;
