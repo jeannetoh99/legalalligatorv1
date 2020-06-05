@@ -13,6 +13,7 @@ class DrawerComponent extends React.Component {
       filteredSuggestions: [],
       openDrawer: this.props.openDrawer,
       chosenWord: null,
+      chosenWordObject: null,
     };
   }
   //LOAD THE GLOSSARY DICTIONARY
@@ -20,17 +21,24 @@ class DrawerComponent extends React.Component {
     suggestions: words,
   };
 
-
-
   onChange = (e) => {
+    console.log(this.state);
+    
     const { suggestions } = this.props;
 
     const filteredSuggestions = suggestions.filter(
       (suggestion) =>
         suggestion.term.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1
     );
-
+    this.state.chosenWordObject ?
     this.setState({
+      activeSuggestion: 0,
+      filteredSuggestions,
+      showSuggestions: true,
+      userInput: e.target.value,
+      chosenWordObject: null,
+    })
+    :this.setState({
       activeSuggestion: 0,
       filteredSuggestions,
       showSuggestions: true,
@@ -38,7 +46,8 @@ class DrawerComponent extends React.Component {
     });
   };
 
-  onClick = (e) => {
+  onClick = (e, suggestion) => {
+    console.log(e.currentTarget)
     // Update the user input and reset the rest of the state
     this.setState({
       activeSuggestion: 0,
@@ -46,8 +55,8 @@ class DrawerComponent extends React.Component {
       showSuggestions: false,
       userInput: e.currentTarget.innerText,
       chosenWord: e.currentTarget.innerText,
+      chosenWordObject: suggestion,
     });
-   
   };
 
   render() {
@@ -63,21 +72,20 @@ class DrawerComponent extends React.Component {
     } = this;
     let suggestionsListComponent;
 
-    if (showSuggestions && userInput) {
+    if (showSuggestions && userInput && this.state.chosenWord == null) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
           <ul class="suggestions">
             {filteredSuggestions.map((suggestion, index) => {
-              let className;
 
               // Flag the active suggestion with a class
         
-              let path = "/Glossary/" + suggestion.term.toLowerCase();
               return (
                 <li
                   className="bg-white rounded w-full h-20 my-4 p-2 font-semibold "
                   key={suggestion.term}
-                  onClick={onClick}
+                  onClick={ (e) => onClick(e, suggestion) }
+                  value={suggestion}
                 >
                     {suggestion.term}
                 </li>
@@ -92,7 +100,7 @@ class DrawerComponent extends React.Component {
           </div>
         );
       }
-    } else {
+    } else if (this.state.chosenWord == null) {
       suggestionsListComponent = (
         <div className="w-full justify-center flex-row bg-gray-500 flex items-center my-20 rounded shadow">
 
@@ -104,17 +112,21 @@ class DrawerComponent extends React.Component {
           <p className="font-semibold text-white text-3xl">Here to<br/>help :)</p>
         </div>
       );
-    }
-    const expandedDefinition = (text) => {
-      const defstyle = this.state.chosenWord
-      ? "bg-gray-200 w-full h-auto shadow content-start"
+    } else if (this.state.chosenWordObject) {
+      const defstyle = this.state.chosenWord !== null && this.state.chosenWordObject!==null
+      ? "w-full justify-start flex-col flex items-start my-20 text-white"
       : "hidden";
-      return(
+      suggestionsListComponent = (
+        
+
         <div className={defstyle}>
-          {this.state.chosenWord}
+          <h2 className="uppercase font-2xl font-semibold">{this.state.chosenWordObject.term}</h2>
+          <div className="h-1 w-full bg-white my-2"/>
+          <p>{this.state.chosenWordObject.definition}</p>
         </div>
+      
       );
-    }
+    } 
 
     const styling = this.props.openDrawer
       ? "navbar w-80 absolute overflow-x-scroll bg-green-500 top-0 right-0 h-screen p-4 shadow-2xl content-center"
@@ -122,7 +134,11 @@ class DrawerComponent extends React.Component {
 
     return (
       <div className={styling}>
-        <h2 className="uppercase karla text-white font-semibold text-2xl py-2">
+        <div onClick={() => this.props.toggleDrawer() }>
+          <p className="font-italic text-white">close</p>
+        </div>
+        
+        <h2 className="uppercase karla text-white font-semibold text-3xl pb-2 pt-20">
           Look up a word
         </h2>
         <form className="form" id="addItemForm">
@@ -136,7 +152,6 @@ class DrawerComponent extends React.Component {
           />
         </form>
         {suggestionsListComponent}
-        {expandedDefinition}
       </div>
     );
   }
