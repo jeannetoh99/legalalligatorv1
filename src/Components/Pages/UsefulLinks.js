@@ -27,8 +27,6 @@ const UsefulLinks = () => {
             {item.description}
           </div>
         ))}
-
-         
       </div>
     </div>
   );
