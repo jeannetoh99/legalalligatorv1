@@ -11,7 +11,7 @@ const PossibleActions = () => {
     const caseId = pathname.substr(lastIndex + 1);
     const caseAction = CaseActions[caseId - 1];
 
-    const [state, setState] = useState(caseAction.actions[0].id);
+    const [state, setState] = useState(caseAction.actions.length === 0 ? -1 : caseAction.actions[0].id);
 
     const renderActions = () => {
       return (
@@ -38,7 +38,7 @@ const PossibleActions = () => {
           <div className="py-8 w-1/4">
             {renderActions()}
           </div>
-          <ActionSummary caseId={caseId} actionId={state} className="w-3/4"/>
+          { state === -1 ? 'There are no possible actions added yet.': <ActionSummary caseId={caseId} actionId={state} className="w-3/4"/>}
         </div>
       </div>
     );
