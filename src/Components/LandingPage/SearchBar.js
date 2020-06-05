@@ -72,9 +72,6 @@ const SearchBar = ( {caseSearchStore} ) => {
                         </button>
                     </div>
                 </form>
-                <span className="cursor-pointer hover:font-bold">
-                    See sample search result page here!
-                </span>
             </div>
         </div>
     );

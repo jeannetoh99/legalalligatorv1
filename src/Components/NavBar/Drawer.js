@@ -8,7 +8,6 @@ class DrawerComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeSuggestion: 0,
       userInput: null,
       showSuggestions: false,
       filteredSuggestions: [],
@@ -32,21 +31,19 @@ class DrawerComponent extends React.Component {
     );
 
     this.setState({
-      activeSuggestion: 0,
       filteredSuggestions,
       showSuggestions: true,
       userInput: e.target.value,
     });
   };
 
-  onClick = (e) => {
+  onClick = (term, id) => {
     // Update the user input and reset the rest of the state
     this.setState({
-      activeSuggestion: 0,
-      filteredSuggestions: [],
-      showSuggestions: false,
-      userInput: e.currentTarget.innerText,
-      chosenWord: e.currentTarget.innerText,
+      filteredSuggestions: [words[id-1]],
+      showSuggestions: true,
+      userInput: term,
+      chosenWord: id,
     });
    
   };
@@ -60,7 +57,6 @@ class DrawerComponent extends React.Component {
       onChange,
       onClick,
       state: {
-        activeSuggestion,
         filteredSuggestions,
         showSuggestions,
         userInput,
@@ -73,19 +69,15 @@ class DrawerComponent extends React.Component {
         suggestionsListComponent = (
           <ul class="suggestions">
             {filteredSuggestions.map((suggestion, index) => {
-              let className;
-
-              // Flag the active suggestion with a class
-        
-              let path = "/Glossary/" + suggestion.term.toLowerCase();
               return (
                 <li
                   className="bg-white rounded w-full my-4 p-2 text-left"
                   key={suggestion.term}
-                  onClick={onClick}
+                  onClick={() => onClick(suggestion.term, suggestion.id)}
                 >
                     <h1 className="capitalize font-semibold">{suggestion.term}</h1>
-                    <p className="font-medium text-xs text-gray-800">{suggestion.definition}</p>
+                    <p className="font-semibold text-xs text-gray-800"><i>{suggestion.definition}</i></p>
+                    <p className="font-medium text-xs text-gray-800">{suggestion.brief_description}</p>
                 </li>
               );
             })}
@@ -98,39 +90,18 @@ class DrawerComponent extends React.Component {
           </div>
         );
       }
-    } else {
-      suggestionsListComponent = (
-        <div className="w-full justify-center flex-row bg-gray-500 flex items-center my-20 rounded shadow">
-
-       
-          <div className="h-24 w-24 mx-4 rounded-full shadow-focus overflow-hidden m-8 bg-white">
-          <img src={alligatorhead} className="mt-2" style={{height: 90, objectFit:"cover"}}/>
-         
-          </div>
-          <p className="font-semibold text-white text-3xl">Here to<br/>help :)</p>
-        </div>
-      );
-    }
-    const expandedDefinition = (text) => {
-      const defstyle = this.state.chosenWord
-      ? "bg-gray-200 w-full h-auto shadow content-start"
-      : "hidden";
-      return(
-        <div className={defstyle}>
-          {this.state.chosenWord}
-        </div>
-      );
-    }
+    } 
 
     const styling = this.state.openDrawer
-      ? "w-80 overflow-x-scroll h-full bg-green-500 p-4 shadow-2xl content-center"
+      ? "w-80 overflow-x-scroll bg-green-500 p-4 shadow-2xl content-center"
       : "hidden";
 
     const bgColor = this.state.openDrawer ? "bg-green-500" : "bg-transparent";
     
     return (
-        <div className={`mr-2 pt-16 float-right top-0 right-0 absolute h-screen ${bgColor}`} aria-label="Open Menu">
-          <div className="flex">
+        <div className={`h-auto fixed ${bgColor} z-20`} aria-label="Open Menu">
+          <div className="fixed top-0 right-0">
+          <div className={`pt-4 flex ${bgColor}`}>
             <svg
                 fill="black"
                 stroke="currentColor"
@@ -160,8 +131,8 @@ class DrawerComponent extends React.Component {
               />
             </form>
             {suggestionsListComponent}
-            {expandedDefinition}
           </div>
+        </div>
       </div>
     );
   }

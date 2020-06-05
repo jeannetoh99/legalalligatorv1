@@ -49,7 +49,7 @@ const ActionDetails = () => {
 
     const renderOverview = () => {
         return (
-            <div id="overview" className="pt-40">
+            <div id="overview" className="pt-32">
                 <h1 className="la-h1 text-gray-900">Overview</h1>
                 <div className="w-56 bg-gray-800 my-2" style={{height: '2px'}} />
                 <div className="w-full flex">
@@ -84,7 +84,7 @@ const ActionDetails = () => {
 
     const renderCheckPoint = (data) => {
         return(
-            <div id={data.id} className="w-full pt-40">
+            <div id={data.id} className="w-full pt-32">
                 <div className="w-full border-b-2 border-gray-800 flex">
                     <div className="w-1/2">
                         <h1 className="la-h1 text-gray-900">Checkpoint {data.id}: <br/></h1>
@@ -95,8 +95,8 @@ const ActionDetails = () => {
                 </div>
                 <div className="w-full flex">
                     <div className="w-1/2 py-8 pr-4">
-                        <p className="text-gray-700 overflow-scroll la-h4 whitespace-pre-wrap" 
-                            style={{maxHeight: '450px'}}>{data.details}</p>
+                        <div className="text-gray-700 overflow-y-scroll la-p whitespace-pre-wrap" 
+                            style={{maxHeight: '450px'}}>{data.details}</div>
                     </div>
                     <div className="w-1/4">
                         {data.to_do.map((datum) => {
@@ -120,8 +120,8 @@ const ActionDetails = () => {
 
 
     return (
-        <div className="my-8 w-full" style={{padding: '0 8% 400px'}}>
-            <div className="sidebar w-1/6 fixed mt-40">
+        <div className="w-full" style={{padding: '0 8% 400px'}}>
+            <div className="sidebar w-1/6 fixed mt-32">
                 <div className="mb-8 text-red-400 cursor-pointer hover:font-bold" onClick={() => goBack()}>{`< back`}</div>
                 {renderSideBar()}
             </div>

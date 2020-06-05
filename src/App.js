@@ -15,11 +15,16 @@ import { observer } from 'mobx-react';
 const caseSearchStore = new CaseSearchStore();
 
 class App extends Component {
+
+  getPage() {
+    return 
+  }
+
   render() {
     return (
       <Router>
       <div className="mx-auto flex flex-col w-full h-full">
-        <NavBar />
+        <NavBar/>
         <Route
           render={({ location }) => (
             <Switch location={location}>

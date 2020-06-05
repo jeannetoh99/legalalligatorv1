@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const CaseActions = [
     {
         id: 1,
@@ -177,14 +179,26 @@ export const Checkpoints = [
                 checklist: ['Copy of NRIC', 'Police Report/ Case Card', 'other relevant documents']
             }, {
                 id: 2,
-                checkpoint_name: 'FIling the complaint form',
-                details: 'The following may occur if a criminal mediation has been ordered:' +
+                checkpoint_name: 'Filing the complaint form',
+                details: 
+                <div>
+                    <b>The following may occur if a criminal mediation has been ordered:</b>
+                    <ul className="list-disc">
+                        <li>The Magistrate may refer parties to the Community Mediation Centre (CMC).</li>
+                        <li>If the matter is settled at the CMC, parties will sign a Settlement Agreement. If settlement is not reached, fresh Notices will be sent to the Complainant and the Respondent to appear before the Magistrate on another day.</li>
+                        <li>The Magistrate may mediate the matter.</li>
+                        <li>If the parties manage to reach a settlement, then complaint will be withdrawn and no further action will be taken. If there is no settlement, then you may wish to proceed to trial by way of a private summons. After you have prepared the charges against the alleged offender, you will be issued a Summons for you to serve on the alleged offender. Each Summons costs $20 to be issued.</li>
+                        <li>The Magistrate may refer both parties to a Court Mediator for mediation.</li>
+                        <li>Depending on the outcome of the mediation, the follow-up actions may be similar to what has been discussed in the previous point.</li>
+                    </ul>
+                </div>,
+                /*'The following may occur if a criminal mediation has been ordered:' +
                 '\n\n - The Magistrate may refer parties to the Community Mediation Centre (CMC). ' + 
                 '\n     - If the matter is settled at the CMC, parties will sign a Settlement Agreement. If settlement is not reached, fresh Notices will be sent to the Complainant and the Respondent to appear before the Magistrate on another day.' +
                 '\n\n - The Magistrate may mediate the matter. ' + 
                 '\n     - If the parties manage to reach a settlement, then complaint will be withdrawn and no further action will be taken. If there is no settlement, then you may wish to proceed to trial by way of a private summons. After you have prepared the charges against the alleged offender, you will be issued a Summons for you to serve on the alleged offender. Each Summons costs $20 to be issued.' +
                 '\n\n - The Magistrate may refer both parties to a Court Mediator for mediation. '+
-                '\n     - Depending on the outcome of the mediation, the follow-up actions may be similar to what has been discussed in the previous point.',
+                '\n     - Depending on the outcome of the mediation, the follow-up actions may be similar to what has been discussed in the previous point.',*/
                 to_do: [],
                 checklist: []
             }, {
