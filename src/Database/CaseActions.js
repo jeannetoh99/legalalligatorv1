@@ -2,13 +2,13 @@ export const CaseActions = [
     {
         id: 1,
         case_name: 'Assault',
-        keywords: ['fight','attack','assault'],
+        keywords: ['fight','fought','attack','attacked','assault', 'beat', 'punch','punched', 'physical', 'kick','kicked',],
         actions: [
         ],
     }, {
         id: 2,
         case_name: 'Harassment',
-        keywords: ['harass'],
+        keywords: ['harass', 'touch', 'touched', 'flashed', 'messages', 'pester', 'threaten', 'peeped', 'threatened'],
         actions: [
             {
                 id: 1,
@@ -57,13 +57,13 @@ export const CaseActions = [
     }, {
         id: 3,
         case_name: 'Neighbour Disputes',
-        keywords: ['neighbour', 'quarrel'],
+        keywords: ['neighbour', 'quarrel', 'dispute', 'neighbor', 'shout', 'scream', 'door'],
         actions: [
         ]
     }, {
         id: 4,
         case_name: 'Stalking',
-        keywords: ['stalking', 'following'],
+        keywords: ['stalking', 'following', 'creep', 'stalker', 'follow', 'peep', 'behind', 'trail'],
         actions: [
         ]
     }
