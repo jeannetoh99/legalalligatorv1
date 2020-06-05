@@ -4,6 +4,51 @@ export const CaseActions = [
         case_name: 'Assault',
         keywords: ['fight','fought','attack','attacked','assault', 'beat', 'punch','punched', 'physical', 'kick','kicked',],
         actions: [
+            {
+                id: 1,
+                action_name: 'File a police report',
+                action_summary: {
+                    details: 'The police may be able to assist by investigating the perpetrator’s actions, and may intervene where necessary.\n\nThe Protection from Harassment Act makes it an offence for a wide array of anti-social behaviours, and the public prosecutor may review the case.',
+                    cost_estimate: 'Free',
+                    duration_estimate: '15 minutes via SingPass',
+                    possible_outcomes: [4, 5, 10],
+                },
+                checkpoint_id: 2,
+            }, {
+                id: 2,
+                action_name: 'File a magistrate’s complaint',
+                action_summary: {
+                    details: 
+                        'Magistrate’s Complaints are complaints filed to the State Courts by individuals who are seeking remedy for an offence they believe have been committed against them by other persons.' +
+                        '\n\nMagistrate’s Complaints are suitable for non-arrestable offences that might have been committed but the offence was not taken up by the police for further investigation or prosecution. Filing a Magistrate’s complaint may lead to the police taking further action on the matter, or the commencing of private prosecutions, such that the offender may be sentenced and ordered to pay compensation to you.',
+                    cost_estimate: 'S$20-100',
+                    duration_estimate: '1 day - 5 months',
+                    possible_outcomes: [6, 7, 8, 3],
+                },
+                checkpoint_id: 3,
+            }, {
+                id: 3,
+                action_name: 'Mediation',
+                action_summary: {
+                    details: 'If you have a dispute with your family, friends or neighbours and a crime was not committed, you may consider contacting Community Mediation Centre (CMC) to commence a mediation session.' +
+                    '\n\n Once both parties agree to mediation, a session can be arranged.' +
+                    '\n\n Mediation at the CMC is an informal and voluntary process that is conducted in a private setting and done in the presence of one or two professionally trained volunteer mediators.',
+                    cost_estimate: '$5 Administrative Fee',
+                    duration_estimate: '2 weeks (depending on earliest opening available)',
+                    possible_outcomes: [11],
+                },
+                checkpoint_id: 5,
+            }, {
+                id: 4,
+                action_name: 'Civil Claim',
+                action_summary: {
+                    details: 'Under Section 11 of the Protection from Harassment Act, a victim may sue the perpetrator for monetary compensation for offences under Sections 3, 4, 5 and 7 of the Act.\n\nA civil claim entails the usual court procedures, including summons, submissions of affidavits, discovery and trial.',
+                    cost_estimate: 'Varies',
+                    duration_estimate: '3 months+',
+                    possible_outcomes: [9, 3],
+                },
+                checkpoint_id: 4,
+            }
         ],
     }, {
         id: 2,
@@ -52,13 +97,48 @@ export const CaseActions = [
                     possible_outcomes: [9, 3],
                 },
                 checkpoint_id: 4,
-            }
+            },
         ]
     }, {
         id: 3,
         case_name: 'Neighbour Disputes',
         keywords: ['neighbour', 'quarrel', 'dispute', 'neighbor', 'shout', 'scream', 'door'],
         actions: [
+            {
+                id: 1,
+                action_name: 'Seek Assistance from Grassroots Leaders',
+                action_summary: {
+                    details: 'Disputes between neighbours are difficult to manage as the relationship will continue past the issue. Therefore, they are best resolved in non-confrontational ways. It is best to attempt to settle the matter amicably before seeking legal recourse.' +
+                    '\n\n You can seek assistance from Grassroots Leaders at Neighbourhood Centres (NCs) which can provide free assistance for people facing disturbances around their home. Grassroot Leaders are trained volunteers who can assist you with resolving such conflicts without needing to resort to legal options',
+                    cost_estimate: 'Free',
+                    duration_estimate: 'Duration Estimate: immediate (depending on availability of volunteers)',
+                    possible_outcomes: [],
+                },
+                checkpoint_id: 6,
+            }, {
+                id: 2,
+                action_name: 'Mediation',
+                action_summary: {
+                    details: 'Disputes between neighbours are difficult to manage as the relationship will continue past the issue. Therefore, they are best resolved in non-confrontational ways. It is best to attempt to settle the matter amicably before seeking legal recourse.' +
+                    '\n\n Mediation is a low-cost alternative involving neutral third-party mediators who will lead the parties in a voluntary discussion in order to reach an amicable solution. Mediators are trained professionals who can assist and resolve the conflict in constructive manners. On average, more than 7 out of 10 cases brought to the Community Mediation Centre reach a settlement.',
+                    cost_estimate: '$5 Administrative Fee',
+                    duration_estimate: '2 weeks (depending on earliest opening available)',
+                    possible_outcomes: [11],
+                },
+                checkpoint_id: 5,
+            }, {
+                id: 3,
+                action_name: 'Community Disputes Resolution Tribunal',
+                action_summary: {
+                    details: 'CDRTs are a legal measure of last resort for residents as the other options may better preserve the neighbour relations. Other options have a greater chance of resolving the matter as the solutions reached are made by mutual consent.' +
+                    '\n\n A CDRT is part of the State Courts which hears cases under the Community Disputes Resolution Act (CDRA). The tribunal is convened for statutory torts arising from the interference with the enjoyment or use of places of residence created under the CDRA. Lawyers are generally not allowed to represent the parties.' +
+                    '\n\n Do read the special characteristics of CDRT proceedings available on the state courts website to gain a better understanding of how a CDRT is carried out. Note also that the Court may order for the parties to attend compulsory mediation if they had not done so previously.' ,
+                    cost_estimate: 'At least $150',
+                    duration_estimate: 'At least 8 weeks',
+                    possible_outcomes: [12,13,14,3],
+                },
+                checkpoint_id: 7,
+            },
         ]
     }, {
         id: 4,
@@ -306,7 +386,79 @@ export const Checkpoints = [
                 checklist: ['NRIC', 'At least 2 set sof all Bundles', 'Writing Materials']
             }
         ]
-    }
+    }, {
+        id: 5,
+        action_name: 'Mediation',
+        checkpoints: [
+            {
+                id: 1,
+                checkpoint_name: 'Seek Consent',
+                details: 
+                    'Mediation is a voluntary scheme where both parties must be willing to go through the mediation process. Therefore, you should seek your neighbour’s consent and availability for the process.',
+                to_do: ['seek consent from other party'],
+                checklist: []
+            }, {
+                id: 2,
+                checkpoint_name: 'Register Case',
+                details: 
+                    'Registering your case can be done online directly using your SingPass, or you may call the CMC hotline at 1800-CALL-LAW (1800-2255-529) during their opening hours: weekdays 830am-5pm, excluding public holidays.' ,
+                to_do: ['Register Online/CMC Enquiry Line'],
+                checklist: []
+            }, {
+                id: 3,
+                checkpoint_name: 'Attend Mediation session',
+                details: 
+                    'Mediation sessions will be carried out at CMC’s office and the number of sessions will differ from case to case. Your mediator will advise the parties accordingly on your first session.' ,
+                to_do: ['Attend Mediation'],
+                checklist: ['NRIC']
+            },
+        ]
+    }, {
+        id: 6,
+        action_name: 'Seek Assistance from Grassroots Leaders',
+        checkpoints: [
+        ]
+    }, {
+        id: 7,
+        action_name: 'Community Disputes Resolution Tribunal',
+        checkpoints: [
+            {
+                id: 1,
+                checkpoint_name: 'Pre-filing Assessment',
+                details: 'A Community Disputes Resolution Tribunal may only be convened if the case falls under any of the cases set out under the Act. Examples may be found at the state courts website, or under section 4 of the Act itself.' +
+                '\n\n If your issue is not governed under the Act, a CDRT cannot be convened and you would have to seek other legal options, such as a regular civil claim.',
+                to_do: ['Pre-filing Assessment'],
+                checklist: []
+            }, {
+                id: 2,
+                checkpoint_name: 'File your Claim in Community Justice and Tribunals System (CJTS)',
+                details: 'This can be accessed using your Singpass Account ',
+                to_do: ['File claim in CJTS'],
+                checklist: []
+            }, {
+                id: 3,
+                checkpoint_name: 'Serve your claim and Notice of Pre-Trial Conference on the Respondent',
+                details: 'After filing your claim in the CJTS, you will receive a Notice of the Pre-Trial Conference (PTC), which will be held within 4 weeks from the filing date. The Notice is to be served on the Respondent (your neighbour) within 14 days of filing.' +
+                '\n\n When service is done, you must file a Declaration of Service on the CJTS.' +
+                '\n\n The Respondent will also file and serve a reply on your claim.',
+                to_do: ['Serve Notice to Respondent', 'File declaration of service'],
+                checklist: []
+            }, {
+                id: 4,
+                checkpoint_name: 'Attend the Pre-Trial Conference',
+                details: 'A PTC is where both parties are to come before a Registrar for him or her to monitor the progress of the case and make the necessary orders to keep the case moving efficiently.' +
+                '\n\n If the parties had not attempted mediation or other non-legal options, the Registrar may make orders for you to do so.',
+                to_do: ['Attend Pre-Trial Conference'],
+                checklist: []
+            }, {
+                id: 5,
+                checkpoint_name: 'Attend Hearing',
+                details: 'If the Registrar sees fit, the case will go to a hearing before the CDRT. After the hearing, the CDRT may make a Court Order if it sees fit. Where a court order is made, the plaintiff must serve the Order on the persons which the order is made against.',
+                to_do: ['Attend Hearing'],
+                checklist: []
+            }, 
+        ]
+    }, 
 ]
 
 export const PossibleOutcomes = [
@@ -340,5 +492,17 @@ export const PossibleOutcomes = [
     }, {
         id: 10,
         outcome_name: 'No further action'
+    }, {
+        id: 11,
+        outcome_name: 'Non-Binding Settlement'
+    }, {
+        id: 12,
+        outcome_name: 'Court Order for Damages'
+    }, {
+        id: 13,
+        outcome_name: 'Court Order for Particular Actions'
+    }, {
+        id: 14,
+        outcome_name: 'Court Order for an Apology'
     }
 ]
