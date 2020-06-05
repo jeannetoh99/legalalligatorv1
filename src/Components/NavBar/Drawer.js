@@ -80,11 +80,12 @@ class DrawerComponent extends React.Component {
               let path = "/Glossary/" + suggestion.term.toLowerCase();
               return (
                 <li
-                  className="bg-white rounded w-full h-20 my-4 p-2 font-semibold "
+                  className="bg-white rounded w-full my-4 p-2 text-left"
                   key={suggestion.term}
                   onClick={onClick}
                 >
-                    {suggestion.term}
+                    <h1 className="capitalize font-semibold">{suggestion.term}</h1>
+                    <p className="font-medium text-xs text-gray-800">{suggestion.definition}</p>
                 </li>
               );
             })}
