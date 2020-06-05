@@ -76,5 +76,84 @@ export const words  = [
         definition: 'a wobbler is a crime that can be classified as either a felony or a misdemeanor. ',
         brief_description: 'In some states, even if an offender is charged with a felony in a wobbler case, the judge may have the authority to reduce the conviction to a misdemeanor.',
     }, 
+    {   
+        id: 12,
+        term: 'Prosecution',
+        upvotes: 10,
+        definition: 'the act of carrying on a legal action against a person accused of a crime in court',
+        brief_description: ""
+    }, 
+    {   
+        id: 13,
+        term: 'Magistrate’s Complaint',
+        upvotes: 10,
+        definition: 'Complaints filed to the State Courts by individuals (known as “complainants”) seeking redress for an offence they believe have been committed against them by other persons (known as the “respondent” in the complaint).',
+        brief_description: ""
+    }, 
+    {   
+        id: 14,
+        term: 'Writ of Summons',
+        upvotes: 10,
+        definition: 'A writ of summons is a court document used to commence civil proceedings in Singapore.',
+        brief_description: ""
+    }, 
+    {   
+        id: 15,
+        term: 'Interlocutorys',
+        upvotes: 19,
+        definition: 'order, sentence, decree, or judgment made during the progress of a legal action and not final or definitive',
+        brief_description: ""
+    }, 
+    {   
+        id: 16,
+        term: 'Affidavit',
+        upvotes: 10,
+        definition: 'a written statement confirmed by oath or affirmation, for use as evidence in court',
+        brief_description: ""
+    }, 
+    {   
+        id: 17,
+        term: 'Evidence-in-chief',
+        upvotes: 10,
+        definition: 'the evidence given by a witness in response to the initial questioning by the party which called that witness to testify.',
+        brief_description: ""
+    }, 
+    {   
+        id: 18,
+        term: 'Plaintiff',
+        upvotes: 10,
+        definition: 'Party making a claim',
+        brief_description: ""
+    }, 
+    {   
+        id: 19,
+        term: 'Defendant',
+        upvotes: 10,
+        definition: 'Party against whom the claim is made',
+        brief_description: ""
+    }, 
+    {   
+        id: 20,
+        term: 'Subpoena',
+        upvotes: 10,
+        definition: 'a writ ordering a person to attend a court.',
+        brief_description: ""
+    }, 
+    {   
+        id: 21,
+        term: 'CJTS',
+        upvotes: 10,
+        definition: 'Community Justice and Tribunal System',
+        brief_description: ""
+    }, 
+    {   
+        id: 22,
+        term: 'CMC',
+        upvotes: 10,
+        definition: 'Community Mediation Centre.',
+        brief_description: "The Centres are set up by the Ministry of Law and run by public service officers with the help of volunteer mediators."
+    }, 
+    
 
+    
 ]
