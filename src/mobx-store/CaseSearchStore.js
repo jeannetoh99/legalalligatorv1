@@ -1,4 +1,4 @@
-import { decorate, observable, action, computed } from "mobx";
+import { decorate, observable, action, computed, runInAction } from "mobx";
 
 class CaseSearchStore {
 
@@ -6,10 +6,10 @@ class CaseSearchStore {
     caseScores = '';
 
     setUserSearchInput = (e) => {
-        console.log('setting: ' + e);
         this.userSearchInput = e;
     }
     setCaseScores = (e) => {
+        console.log('setting: ' + e);
         this.caseScores = e;
     }
 
@@ -18,6 +18,7 @@ class CaseSearchStore {
         return this.userSearchInput;
     }
     get getCaseScores() {
+        console.log('getting: ' + this.caseScores)
         return this.caseScores;
     }
 

@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import LongCaseCard from './LongCaseCard';
 import { Cases } from './../../Database/Cases';
-import { CaseActions } from "../../Database/CaseActions";
 import ScrollToTop from './../ScrollToTop';
-import { observer } from 'mobx-react'
-import { get } from 'mobx';
 
-const CaseSearchResult = ( {caseSearchStore} ) => {
-
-    const { getCaseScores } = caseSearchStore;
+class CaseSearchResult extends Component {
 
     //take each word from the sentence
     //check through with each keyword in each case keyword
@@ -16,14 +11,18 @@ const CaseSearchResult = ( {caseSearchStore} ) => {
     //give each case a score
     //sort case, map render
 
-    
 
     /*useEffect(() => {
         setState(getUserSearchInput);
         parseUserInput();
     },[])*/
 
-    const renderCaseCards = () => {
+    constructor(props) {
+        super(props);
+    }
+
+    renderCaseCards = () => {
+        const getCaseScores = this.props.caseScores;
         if (getCaseScores !== undefined) {
             return (
                 <div>
@@ -43,15 +42,17 @@ const CaseSearchResult = ( {caseSearchStore} ) => {
         }
     }
 
-    return (
-        <div className='page' style={{marginLeft: '15%', marginRight: '15%'}}>
-            <ScrollToTop />
-            <h1 className="la-h1 text-gray-800">
-                Based on the information provided,<br/>
-                here are some topics we found:
-            </h1>
-            <div>{renderCaseCards()}</div>
-        </div>
-    )
+    render() {
+        return (
+            <div className='page' style={{marginLeft: '15%', marginRight: '15%'}}>
+                <ScrollToTop />
+                <h1 className="la-h1 text-gray-800">
+                    Based on the information provided,<br/>
+                    here are some topics we found:
+                </h1>
+                <div>{this.renderCaseCards()}</div>
+            </div>
+        )
+    }
 }
 export default CaseSearchResult;
