@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { words } from "../Glossary/Words";
 import alligatorhead from "./../../images/alligatorhead.jpg"
+import { ReactComponent as LightBulb } from '../../images/light-bulb.svg';
 
 class DrawerComponent extends React.Component {
   
@@ -11,7 +12,7 @@ class DrawerComponent extends React.Component {
       userInput: null,
       showSuggestions: false,
       filteredSuggestions: [],
-      openDrawer: this.props.openDrawer,
+      openDrawer: false,
       chosenWord: null,
     };
   }
@@ -49,6 +50,10 @@ class DrawerComponent extends React.Component {
     });
    
   };
+
+  toggleDrawer = () => {
+    this.setState({openDrawer: !this.state.openDrawer});
+  }
 
   render() {
     const {
@@ -116,27 +121,46 @@ class DrawerComponent extends React.Component {
       );
     }
 
-    const styling = this.props.openDrawer
-      ? "navbar w-80 absolute overflow-x-scroll bg-green-500 top-0 right-0 h-screen p-4 shadow-2xl content-center"
+    const styling = this.state.openDrawer
+      ? "w-80 overflow-x-scroll h-full bg-green-500 p-4 shadow-2xl content-center"
       : "hidden";
 
+    const bgColor = this.state.openDrawer ? "bg-green-500" : "bg-transparent";
+    
     return (
-      <div className={styling}>
-        <h2 className="uppercase karla text-white font-semibold text-2xl py-2">
-          Look up a word
-        </h2>
-        <form className="form" id="addItemForm">
-          <input
-            autoComplete="off"
-            type="text"
-            className="input w-full rounded h-10 p-2"
-            id="addInput"
-            onChange={onChange}
-            value={userInput}
-          />
-        </form>
-        {suggestionsListComponent}
-        {expandedDefinition}
+        <div className={`mr-2 pt-16 float-right top-0 right-0 absolute h-screen ${bgColor}`} aria-label="Open Menu">
+          <div className="flex">
+            <svg
+                fill="black"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                class="w-8 h-8 m-2 pb-2 hover:text-red"
+                onClick={() => this.toggleDrawer()}
+              >
+            {/* <path d="M4 6h16M4 12h16M4 18h16"></path> */}
+              <LightBulb fill="white"/>
+            </svg>
+            <h2 className={`uppercase karla text-white font-semibold text-2xl pt-2 px-2 ${this.state.openDrawer ? 'visible' : 'hidden'}`}>
+              Look up a word
+            </h2>
+          </div>
+          <div className={styling}>
+            <form className="form" id="addItemForm">
+              <input
+                autoComplete="off"
+                type="text"
+                className="input w-full rounded h-10 p-2"
+                id="addInput"
+                onChange={onChange}
+                value={userInput}
+              />
+            </form>
+            {suggestionsListComponent}
+            {expandedDefinition}
+          </div>
       </div>
     );
   }
