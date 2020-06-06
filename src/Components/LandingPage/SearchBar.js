@@ -1,9 +1,8 @@
 import React, { Component, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { CaseActions } from './../../Database/CaseActions';
-import CaseSearchResult from "../CaseSearchResult/CaseSearchResult";
 
-const SearchBar = ( {caseSearchStore} ) => {
+const SearchBar = (props) => {
     
     const [state, setState] = useState({value: '', wordCount: '0'})
     const history = useHistory();
@@ -43,8 +42,7 @@ const SearchBar = ( {caseSearchStore} ) => {
 
     const getSearchResults = () => {
         const caseScores = parseUserInput();
-        const { setCaseScores } = caseSearchStore;
-        setCaseScores(caseScores);
+        props.setCaseScore(caseScores);
         history.push("/CaseSearchResults");
     }
 
@@ -72,9 +70,6 @@ const SearchBar = ( {caseSearchStore} ) => {
                         </button>
                     </div>
                 </form>
-                <span className="cursor-pointer hover:font-bold">
-                    See sample search result page here!
-                </span>
             </div>
         </div>
     );

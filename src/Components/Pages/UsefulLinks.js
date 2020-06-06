@@ -5,14 +5,16 @@ const UsefulLinks = () => {
   return (
     <div className="page relative h-full" style={{ minWidth: "1000px" }}>
       <div className="w-full flex flex-col items-center">
+      <div className="text-center karla text-4xl font-semibold flex-1 my-2 ">
+          Media Resources
+      </div>
       <iframe
-            width="560"
-            height="315"
+            width="840"
+            height="472.5"
             src="https://www.youtube.com/embed/vfxpmgzfsvA"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            className ="w-1/2 h-1/2 m-4"
           />
 
         <div className="text-center karla text-4xl font-semibold flex-1 my-2 ">
@@ -28,8 +30,6 @@ const UsefulLinks = () => {
             {item.description}
           </div>
         ))}
-
-         
       </div>
     </div>
   );

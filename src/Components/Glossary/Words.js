@@ -152,8 +152,5 @@ export const words  = [
         upvotes: 10,
         definition: 'Community Mediation Centre.',
         brief_description: "The Centres are set up by the Ministry of Law and run by public service officers with the help of volunteer mediators."
-    }, 
-    
-
-    
+    },     
 ]

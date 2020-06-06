@@ -14,9 +14,8 @@ export class LandingPage extends Component {
   }
 
   render() { 
-    const { caseSearchStore } = this.props;
     return (
-      <div className="page relative h-full" style={{minWidth: '1000px'}}>
+      <div className="page w-full relative h-full" style={{minWidth: '1000px'}}>
         <ScrollToTop />
         <div className="flex flex-row items-center justify-center mt-12 ml-48">
           <div className="absolute -ml-156 h-132 w-132 bg-red-500 rounded-full z-0" />
@@ -38,7 +37,7 @@ export class LandingPage extends Component {
           </HashLink>
         </div>
         <CommonCases />
-        <SearchBar caseSearchStore={ caseSearchStore } />
+        <SearchBar setCaseScore={this.props.setCaseScore} />
       </div>
     );
   }

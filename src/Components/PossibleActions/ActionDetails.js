@@ -104,7 +104,7 @@ const ActionDetails = () => {
 
     const renderCheckPoint = (data) => {
         return(
-            <div id={data.id} className="w-full pt-40">
+            <div id={data.id} className="w-full pt-32">
                 <div className="w-full border-b-2 border-gray-800 flex">
                     <div className="w-1/2">
                         <h1 className="la-h1 text-gray-900">Checkpoint {data.id}: <br/></h1>
@@ -115,8 +115,8 @@ const ActionDetails = () => {
                 </div>
                 <div className="w-full flex">
                     <div className="w-1/2 py-8 pr-4">
-                        <p className="text-gray-700 overflow-scroll la-h4 whitespace-pre-wrap" 
-                            style={{maxHeight: '450px'}}>{data.details}</p>
+                        <div className="text-gray-700 overflow-y-scroll la-p whitespace-pre-wrap" 
+                            style={{maxHeight: '450px'}}>{data.details}</div>
                     </div>
                     <div className="w-1/4">
                         {data.to_do.map((datum) => {

@@ -11,11 +11,9 @@ const Glossary = () => {
     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
   });
   return (
-    <div className="flex flex-wrap">
-     
-
-      <div className="page flex w-full justify-between">
-        <div className="text-center karla w-2/3 m-8">
+    <div className="flex flex-wrap mx-40">
+      <div className="page flex justify-between">
+        <div className="text-center karla w-2/3">
          {words.map((item, i ) => 
             (i < 10 )
             ? <GlossaryCard word={item}/>
@@ -23,7 +21,7 @@ const Glossary = () => {
           )}
 
         </div>
-        <div className=" w-1/4 m-8">
+        <div className="w-1/4">
           <Poll />
         </div>
       </div>

@@ -1,8 +1,10 @@
+import React from 'react';
+
 export const CaseActions = [
     {
         id: 1,
         case_name: 'Assault',
-        keywords: ['fight','fought','attack','attacked','assault', 'beat', 'punch','punched', 'physical', 'kick','kicked',],
+        keywords: ['fight','fought','attack','attacked','assault', 'assaulted', 'beat', 'punch','punched', 'physical', 'kick','kicked',],
         actions: [
             {
                 id: 1,
